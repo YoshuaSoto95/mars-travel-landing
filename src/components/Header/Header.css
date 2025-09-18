@@ -1,0 +1,159 @@
+.header {
+    background-color: rgba(13, 12, 29, 0.8);
+    /* Fondo oscuro semitransparente */
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    /* Efecto de desenfoque */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    /* Color del logo */
+    background: linear-gradient(45deg, #e0a3ff, #8a2be2);
+    /* Degradado para el logo */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 2.5rem;
+    /* Espacio entre los elementos del menú */
+    align-items: center;
+}
+
+.nav-menu li a {
+    color: #f0f0f0;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #8a2be2, #e0a3ff);
+    /* Degradado para el hover */
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+}
+
+.nav-menu .cta-button {
+    background: linear-gradient(90deg, #e0a3ff, #8a2be2);
+    /* Degradado para el botón */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+}
+
+.nav-menu .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.6);
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    /* Oculto por defecto en desktop */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    /* Asegurar que esté por encima del menú */
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.hamburger-menu .bar.open:nth-child(1) {
+    transform: translateY(7px) rotate(-45deg);
+}
+
+.hamburger-menu .bar.open:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu .bar.open:nth-child(3) {
+    transform: translateY(-7px) rotate(45deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Ocultar fuera de la pantalla */
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(13, 12, 29, 0.95);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s ease-in-out;
+        z-index: 999;
+    }
+
+    .nav-menu.open {
+        right: 0;
+        /* Mostrar cuando está abierto */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .nav-menu li {
+        opacity: 0;
+        /* Ocultar inicialmente para la animación de staggerChildren */
+    }
+
+    .nav-menu.open li {
+        opacity: 1;
+        /* Mostrar cuando está abierto */
+    }
+
+    .nav-menu li a {
+        font-size: 1.5rem;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}

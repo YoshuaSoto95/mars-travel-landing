@@ -1,0 +1,168 @@
+.plans-section {
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+    /* La magia del fondo parallax */
+    background-image: url('../../assets/plans-background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Un overlay para oscurecer el fondo y mejorar la legibilidad */
+.plans-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 7, 21, 0.8);
+    z-index: 1;
+}
+
+/* El contenido debe estar por encima del overlay */
+.plans-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.plans-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Alinear abajo para que el destacado sobresalga */
+    gap: 2rem;
+    flex-wrap: wrap;
+    /* Para que se adapte en pantallas pequeñas */
+}
+
+.plan-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    /* Para el badge y efectos */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de borde brillante con pseudo-elementos */
+.plan-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+.plan-header h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    background: linear-gradient(45deg, #e0a3ff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.plan-features {
+    list-style: none;
+    margin-bottom: 2.5rem;
+    flex-grow: 1;
+    /* Hace que esta sección crezca para empujar el botón hacia abajo */
+}
+
+.plan-features li {
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.plan-cta {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #8a2be2;
+    background: transparent;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.plan-cta:hover {
+    background-color: #8a2be2;
+    color: #fff;
+}
+
+/* Estilos para la tarjeta destacada */
+.plan-card.highlighted {
+    transform: scale(1.05);
+    /* Ligeramente más grande */
+    border-color: #e0a3ff;
+    background: linear-gradient(145deg, rgba(138, 43, 226, 0.2), rgba(138, 43, 226, 0.1));
+}
+
+.plan-card.highlighted .plan-cta {
+    background: linear-gradient(90deg, #e0a3ff, #8a2be2);
+    border: none;
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
+}
+
+.highlight-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #e0a3ff, #8a2be2);
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 0 0 10px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .plans-container {
+        align-items: stretch;
+        /* Para que todas tengan la misma altura */
+    }
+
+    .plan-card.highlighted {
+        transform: none;
+        /* Quitar el scale para evitar problemas de layout */
+    }
+}
+
+@media (max-width: 768px) {
+    .plans-section {
+        background-attachment: scroll;
+        /* El parallax fijo no funciona bien en móviles */
+    }
+}

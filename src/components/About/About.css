@@ -1,0 +1,93 @@
+.about-section {
+    padding: 6rem 4rem;
+    background-color: #080715;
+    /* Un fondo aún más oscuro para contraste */
+    overflow: hidden;
+    /* Evitar que las animaciones causen scrollbars */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Línea sutil de separación */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    color: #fff;
+    background: linear-gradient(45deg, #e0a3ff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.about-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image-container img {
+    max-width: 100%;
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(224, 163, 255, 0.3));
+    border-radius: 15px;
+    /* Sombra para dar efecto de brillo */
+}
+
+.about-text-container {
+    flex: 1.2;
+    padding: 0 2rem;
+}
+
+.about-text-container h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #c9c9ff;
+}
+
+.about-text-container p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+        /* Apilar en vertical */
+        text-align: center;
+    }
+
+    .about-image-container {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-section {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .about-text-container h3 {
+        font-size: 1.8rem;
+    }
+
+    .about-text-container p {
+        font-size: 1rem;
+    }
+}
