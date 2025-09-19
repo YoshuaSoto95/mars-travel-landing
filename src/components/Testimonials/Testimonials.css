@@ -1,0 +1,141 @@
+.testimonials-section {
+    padding: 6rem 15%;
+    position: relative;
+    /* Clave para el posicionamiento */
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* PASO 3: Añade los estilos para el video y el overlay */
+.testimonials-video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    object-fit: cover;
+}
+
+.testimonials-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 12, 29, 0.85);
+    /* Overlay ligeramente más opaco */
+    z-index: -1;
+}
+
+.testimonials-content {
+    position: relative;
+    /* Asegura que el contenido esté sobre el video/overlay */
+    z-index: 1;
+}
+
+.mySwiper {
+    padding: 2rem 0 4rem 0;
+    /* Espacio para la paginación y un poco arriba */
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+    /* Asegura que todas las tarjetas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-comment {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    /* Empuja la información del autor hacia abajo */
+}
+
+.testimonial-comment::before {
+    content: '“';
+    font-size: 3rem;
+    color: #8a2be2;
+    font-weight: bold;
+    line-height: 0;
+    margin-right: 0.5rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #8a2be2;
+    object-fit: cover;
+}
+
+.author-name {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.author-trip {
+    color: #c9c9ff;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* --- ESTILOS PERSONALIZADOS PARA SWIPER --- */
+
+/* Paginación (los puntos de abajo) */
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+    width: 10px;
+    height: 10px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background: #e0a3ff;
+    width: 25px;
+    border-radius: 5px;
+}
+
+/* Flechas de Navegación */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #e0a3ff !important;
+    /* El !important es a veces necesario para sobreescribir */
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #fff !important;
+    transform: scale(1);
+}
+
+/* Ocultar flechas en móviles para un look más limpio */
+@media (max-width: 768px) {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+}

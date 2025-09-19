@@ -1,0 +1,89 @@
+.cta-special-section {
+    position: relative;
+    height: 60vh;
+    /* Altura considerable para que sea inmersivo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    background-image: url('../../assets/imagen/stars-background.png');
+    /* Un fondo de estrellas sutil */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente radial para enfocar la atención en el centro */
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 80%);
+    z-index: 2;
+}
+
+.mars-background-planet {
+    position: absolute;
+    /* Lo posicionamos para que se vea grande pero no abrume */
+    bottom: -25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 900px;
+    height: auto;
+    opacity: 0.6;
+    /* Hacemos que se funda con el fondo */
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 3;
+    /* El contenido siempre al frente */
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 0 20px rgba(224, 163, 255, 0.5);
+}
+
+.cta-button-special {
+    background: linear-gradient(90deg, #e0a3ff, #8a2be2);
+    border: none;
+    padding: 1.25rem 3.5rem;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button-special:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(138, 43, 226, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cta-title {
+        font-size: 3.5rem;
+    }
+
+    .cta-button-special {
+        font-size: 1.2rem;
+        padding: 1rem 2.5rem;
+    }
+
+    .mars-background-planet {
+        width: 120%;
+    }
+}

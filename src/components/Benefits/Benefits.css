@@ -1,24 +1,53 @@
 .benefits-section {
-    padding: 6rem;
-    background-color: #0d0c1d;
-    /* Mantenemos el fondo oscuro principal */
+    padding: 6rem 20%;
+    position: relative;
+    /* Clave para posicionar elementos hijos de forma absoluta */
     overflow: hidden;
+}
+
+.benefits-video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    /* Posiciona el video detrás de todo */
+    object-fit: cover;
+    /* Asegura que el video cubra todo el espacio sin deformarse */
+}
+
+.benefits-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 7, 21, 0.75);
+    /* Overlay más oscuro para que el texto resalte */
+    z-index: -1;
+    /* Se posiciona entre el video y el contenido */
+}
+
+/* Es importante asegurarse de que el contenido principal tenga un z-index implícito o explícito mayor */
+.benefits-content {
+    position: relative;
+    /* Opcional, pero buena práctica para asegurar el apilamiento */
+    z-index: 1;
 }
 
 .benefits-grid {
     display: grid;
-    /* Crea una grilla responsive:
-     - auto-fit: Llena el espacio con tantas columnas como quepan.
-     - minmax(300px, 1fr): Cada columna tiene un mínimo de 300px y un máximo de 1 fracción del espacio.
-  */
-    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
-    /* Espacio entre tarjetas */
 }
 
+/* El resto de los estilos (.benefit-card, .benefit-icon, etc.) se mantienen igual */
 .benefit-card {
     background: rgba(255, 255, 255, 0.05);
-    /* Efecto de cristal (glassmorphism) */
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
@@ -29,15 +58,12 @@
 }
 
 .benefit-card:hover {
-    /* No necesitamos la animación aquí porque la maneja Framer Motion (whileHover) */
-    /* Pero podemos añadir una sombra más pronunciada */
     box-shadow: 0 0 40px rgba(138, 43, 226, 0.4);
 }
 
 .benefit-icon {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    /* Opcional: Darle un color degradado al icono */
     display: inline-block;
     background: linear-gradient(45deg, #e0a3ff, #8a2be2);
     -webkit-background-clip: text;
@@ -56,15 +82,13 @@
     line-height: 1.6;
 }
 
-/* Responsive */
-@media (max-width: 1040px) {
+@media (max-width: 768px) {
     .benefits-section {
-        padding: 4rem;
+        padding: 4rem 2rem;
     }
 
     .benefits-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        /* Una sola columna en móviles */
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
 }

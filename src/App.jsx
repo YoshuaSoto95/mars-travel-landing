@@ -4,6 +4,8 @@ import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Benefits from './components/Benefits/Benefits';
 import Plans from './components/Plans/Plans';
+import Testimonials from './components/Testimonials/Testimonials';
+import CallToActionSection from './components/CallToAction/CallToAction';
 
 import './App.css'; // Estilos globales
 
@@ -32,44 +34,9 @@ function App() {
       <Hero />
       <About />
       <Benefits />
-      <Plans openPrequalifyModal={openPrequalifyModal} />
-      {isModalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            {modalContent === 'prequalify' ? (
-              <>
-                <h2>Precalificación para Viaje a Marte</h2>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    openThankYouModal();
-                  }}
-                >
-                  <label>
-                    Nombre Completo:
-                    <input type="text" name="name" required />
-                  </label>
-                  <label>
-                    Email:
-                    <input type="email" name="email" required />
-                  </label>
-                  <label>
-                    Edad:
-                    <input type="number" name="age" required min="18" />
-                  </label>
-                  <button type="submit">Enviar</button>
-                </form>
-              </>
-            ) : (
-              <>
-                <h2>¡Gracias por Precalificar!</h2>
-                <p>Nos pondremos en contacto contigo pronto con más detalles.</p>
-                <button onClick={closeModal}>Cerrar</button>
-              </>
-            )}
-          </div>
-        </div>
-      )}
+      <Plans />
+      <Testimonials />
+      <CallToActionSection openPrequalifyModal={openPrequalifyModal} openThankYouModal={openThankYouModal} />
     </div>
   );
 }

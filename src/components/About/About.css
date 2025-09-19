@@ -1,5 +1,5 @@
 .about-section {
-    padding: 6rem 4rem;
+    padding: 6rem 15%;
     background-color: #080715;
     /* Un fondo aún más oscuro para contraste */
     overflow: hidden;
@@ -61,7 +61,7 @@
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 987px) {
     .about-content {
         flex-direction: column;
         /* Apilar en vertical */
