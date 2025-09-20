@@ -5,8 +5,9 @@ import About from './components/About/About';
 import Benefits from './components/Benefits/Benefits';
 import Plans from './components/Plans/Plans';
 import Testimonials from './components/Testimonials/Testimonials';
-import CallToActionSection from './components/CallToAction/CallToAction';
-
+import CallToAction from './components/CallToAction/CallToAction';
+import Footer from './components/Footer/Footer';
+import Modal from './components/Modal/Modal'; // Para el modal de precalificación y agradecimiento
 import './App.css'; // Estilos globales
 
 function App() {
@@ -30,13 +31,22 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Hero />
+      <Header openModal={openPrequalifyModal} />
+      <Hero openModal={openPrequalifyModal} />
       <About />
       <Benefits />
       <Plans />
       <Testimonials />
-      <CallToActionSection openPrequalifyModal={openPrequalifyModal} openThankYouModal={openThankYouModal} />
+      <CallToAction openModal={openPrequalifyModal} />
+      <Footer openModal={openPrequalifyModal} />
+
+      {isModalOpen && (
+        <Modal
+          onClose={closeModal}
+          content={modalContent}
+          onPrequalifySuccess={openThankYouModal}
+        />
+      )}
     </div>
   );
 }

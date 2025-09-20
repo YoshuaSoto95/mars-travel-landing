@@ -1,0 +1,184 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-container {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    /* Para el botón de cerrar */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    /* AJUSTE AQUÍ: Eliminamos la siguiente línea */
+    /* top: 50%; <--- ELIMINAR ESTA LÍNEA */
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #a0a0c0;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close-modal-btn:hover {
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.modal-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #e0a3ff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+}
+
+.modal-container p {
+    text-align: center;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Estilos del Formulario */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #c9c9ff;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #8a2be2;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+}
+
+.modal-submit-btn {
+    margin-top: 1rem;
+    background: linear-gradient(90deg, #e0a3ff, #8a2be2);
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.modal-submit-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Estilos del Thank You */
+.thank-you-content {
+    text-align: center;
+}
+
+.thank-you-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.contact-info {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-bubbles {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.contact-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-bubble.whatsapp {
+    background: #25D366;
+}
+
+.contact-bubble.calendly {
+    background: #006BFF;
+}
+
+.contact-bubble:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px currentColor;
+}
+
+.contact-text {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: #a0a0c0;
+}
